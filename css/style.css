@@ -182,10 +182,12 @@ body.about_me {
 .slide {
     min-width: 100%;
     transition: opacity 0.5s ease;
+    box-sizing: border-box;
 }
 
 .slide img {
     width: 100%;
+    display: block;
     border-radius: 10px;
 }
 
