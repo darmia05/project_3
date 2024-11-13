@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Lobster&display=swap');
+
+html {
+  background-image: url('../images/tech.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body {
+  font-family: 'Roboto Slab', serif;
+  line-height: 1.6;
+  color: #fefefe;
+  padding: 0 2em;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(50, 50, 50, 0.9);
+  padding: 1rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+  color: #ffcc00;
+}
+
+header {
+  text-align: center;
+  padding: 1.5em 0;
+}
+
+h1, h2 {
+  font-family: 'Roboto Slab', serif;
+}
+
+main {
+  max-width: 85%;
+  margin: 3em auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  margin-bottom: 3em;
+  padding: 1.5em;
+  border-radius: 8px;
+  background-color: rgba(50, 50, 50, 0.9);
+  width: 100%;
+  max-width: 800px; 
+  text-align: center;
+}
+
+#map-section {
+  margin-top: 2em;
+}
+
+#map {
+  height: 500px;
+  border-radius: 8px;
+  margin: 1.5em 0;
+  border: 2px solid #fefefe;
+}
+
+#home-page section {
+  border: 3px solid #ff4081;
+}
+
+.index ul {
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+#favorite-music section {
+  border: 3px dotted #3f51b5;
+}
+
+#my-music section {
+  border: 3px dashed #4caf50;
+}
+
+.music ul {
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+.about_me ul {
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+img {
+  border-radius: 5px;
+  margin: 1.5em 0;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.slideshow {
+  position: relative;
+  max-width: 800px;
+  margin: 2em auto;
+  overflow: hidden;
+  border: 3px solid #4caf50;
+  border-radius: 8px;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.custom-control {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #ff4081;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  body {
+    padding: 0 1em;
+  }
+}
+
+iframe {
+  border: 2px solid #fefefe;
+  margin: 1.5em 0;
+  width: 100%;
+  max-width: 560px;
+  border-radius: 8px;
+}
