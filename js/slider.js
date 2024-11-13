@@ -1,30 +1,31 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const slidesContainer = document.querySelector('.slider');
+let slideIndex = 0;
+let isClicking = false;
 
-    if (!slidesContainer) {
-        return;
-    }
+function showSlides() {
+  const slides = document.querySelectorAll('.slide');
+  slides.forEach((slide, index) => {
+    slide.style.display = 'none';
+  });
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  slides[slideIndex - 1].style.display = 'block';
+  setTimeout(showSlides, 3000); 
+}
 
-    const images = Array.from(slidesContainer.children);
+function moveSlide(n) {
+  if (isClicking) return; 
+  isClicking = true;
 
-    images.forEach((image) => {
-        const clone = image.cloneNode(true);
-        slidesContainer.appendChild(clone);
-    });
+  slideIndex += n;
+  const slides = document.querySelectorAll('.slide');
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  if (slideIndex < 1) { slideIndex = slides.length }
 
-    let currentPosition = 0;
-    const scrollSpeed = 0.65;
+  showSlides();
 
-    function animateSlider() {
-        currentPosition -= scrollSpeed;
+  setTimeout(() => { isClicking = false; }, 500);
+}
 
-        if (Math.abs(currentPosition) >= slidesContainer.scrollWidth / 2) {
-            currentPosition = 0;
-        }
-
-        slidesContainer.style.transform = `translateX(${currentPosition}px)`;
-        requestAnimationFrame(animateSlider);
-    }
-
-    animateSlider();
-});
+window.onload = function() {
+  showSlides(); 
+};
