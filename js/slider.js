@@ -1,3 +1,27 @@
+let currentIndex = 0;
+
+function nextSlide() {
+  const slides = document.querySelectorAll('.slide');
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateSlider();
+}
+
+function prevSlide() {
+  const slides = document.querySelectorAll('.slide');
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateSlider();
+}
+
+function updateSlider() {
+  const slides = document.querySelectorAll('.slide');
+  slides.forEach((slide, index) => {
+    slide.classList.remove('active');
+    if (index === currentIndex) {
+      slide.classList.add('active');
+    }
+  });
+}
+
 let map;
 
 function initMap() {
@@ -40,26 +64,10 @@ function createCenterControl(controlDiv, map, marker) {
   return controlUI;
 }
 
-let currentIndex = 0;
-
-function nextSlide() {
-  const slides = document.querySelectorAll('.slide');
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateSlider();
-}
-
-function prevSlide() {
-  const slides = document.querySelectorAll('.slide');
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  updateSlider();
-}
-
-function updateSlider() {
-  const slides = document.querySelectorAll('.slide');
-  slides.forEach((slide, index) => {
-    slide.classList.remove('active');
-    if (index === currentIndex) {
-      slide.classList.add('active');
-    }
-  });
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const prevButton = document.querySelector('.prev');
+  const nextButton = document.querySelector('.next');
+  
+  prevButton.addEventListener('click', prevSlide);
+  nextButton.addEventListener('click', nextSlide);
+});
