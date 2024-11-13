@@ -42,11 +42,9 @@ function createCenterControl(controlDiv, map, marker) {
 
 let currentIndex = 0;
 
-function showNextSlide() {
+function changeSlide(direction) {
   const slides = document.querySelectorAll('.slider .slide');
   slides[currentIndex].classList.remove('active');
-  currentIndex = (currentIndex + 1) % slides.length;
+  currentIndex = (currentIndex + direction + slides.length) % slides.length;
   slides[currentIndex].classList.add('active');
 }
-
-setInterval(showNextSlide, 3000);
