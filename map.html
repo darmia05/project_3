@@ -83,7 +83,33 @@
 
   <script>
     $(document).ready(function() {
-      $('.slider').Slider({ auto: true });
+      let currentPosition = 0;
+      const scrollSpeed = 0.65;
+      const slidesContainer = $('.slider');
+
+      if (!slidesContainer.length) {
+        return;
+      }
+
+      const images = slidesContainer.find('li');
+
+      images.each(function() {
+        const clone = $(this).clone();
+        slidesContainer.append(clone);
+      });
+
+      function animateSlider() {
+        currentPosition -= scrollSpeed;
+
+        if (Math.abs(currentPosition) >= slidesContainer[0].scrollWidth / 2) {
+          currentPosition = 0;
+        }
+
+        slidesContainer.css('transform', `translateX(${currentPosition}px)`);
+        requestAnimationFrame(animateSlider);
+      }
+
+      animateSlider();
     });
   </script>
 </body>
