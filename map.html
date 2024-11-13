@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Maps API</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="js/slider.js" defer></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body id="map-page">
+  <ul class="nav-top">
+    <li><a href="index.html">Resume</a></li>
+    <li><a href="music.html">Music Preferences</a></li>
+    <li><a href="about_me.html">About Me</a></li>
+    <li><a href="map.html" class="active">Map</a></li>
+  </ul>
+
+  <section class="banner">
+    <h1>Google Maps</h1>
+  </section>
+
+  <section id="map-section">
+    <h2>McCormick Student Village Map</h2>
+    <div id="map" style="height: 500px;"></div>
+  </section>
+
+  <section class="slideshow">
+    <h2>McCormick Student Village</h2>
+    <ul class="slider">
+      <li><img src="images/msv.jpg" alt="The main entrance to MSV"></li>
+      <li><img src="images/msv2.jpg" alt="The front lawn of MSV"></li>
+      <li><img src="images/fowler.jpg" alt="Fowler Hall of MSV"></li>
+    </ul>
+  </section>
+
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIWGeBWMq1N3gGBBltdTBS1D953KC2S0o&callback=initMap"></script>
+  <script>
+    let map;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 41.83573, lng: -87.62424 },
+        zoom: 15,
+      });
+
+      const marker = new google.maps.Marker({
+        position: { lat: 41.83573, lng: -87.62424 },
+        map: map,
+        title: "McCormick Student Village",
+      });
+
+      const infoWindow = new google.maps.InfoWindow({
+        content: "<h3>McCormick Student Village</h3><p>The oldest resident building on campus.</p>",
+      });
+
+      marker.addListener("click", () => {
+        infoWindow.open(map, marker);
+      });
+
+      const centerControlDiv = document.createElement("div");
+      const centerControl = createCenterControl(centerControlDiv, map, marker);
+      map.controls[google.maps.ControlPosition.TOP_RIGHT].push(centerControlDiv);
+    }
+
+    function createCenterControl(controlDiv, map, marker) {
+      const controlUI = document.createElement("div");
+      controlUI.classList.add("custom-control");
+      controlUI.title = "Click to center the map on the marker";
+      controlUI.innerText = "Center Map on Marker";
+      controlDiv.appendChild(controlUI);
+
+      controlUI.addEventListener("click", () => {
+        map.setCenter(marker.getPosition());
+        map.setZoom(15);
+      });
+
+      return controlUI;
+    }
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      $('.slider').Slider({ auto: true });
+    });
+  </script>
+</body>
+</html>
