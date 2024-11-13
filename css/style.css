@@ -71,6 +71,7 @@ section {
   width: 100%;
   max-width: 600px;
   overflow: hidden;
+  position: relative;
 }
 
 .slider {
@@ -78,22 +79,48 @@ section {
   padding: 0;
   margin: 0;
   display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
 .slider .slide {
   min-width: 100%;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   opacity: 0;
 }
 
 .slider .active {
   opacity: 1;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .slider img {
   width: 100%;
   border-radius: 10px;
+}
+
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+button.prev:hover, button.next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 @media (max-width: 768px) {
@@ -107,6 +134,10 @@ section {
   }
 
   section {
+    max-width: 100%;
+  }
+
+  .slider-container {
     max-width: 100%;
   }
 }
