@@ -23,17 +23,21 @@
   </section>
 
   <section id="map-section">
-    <h2>McCormick Student Village Map</h2>
+    <h1>McCormick Student Village Map</h1>
     <div id="map" style="height: 500px;"></div>
   </section>
 
   <section class="slideshow">
-    <h2>McCormick Student Village</h2>
-    <ul class="slider">
-      <li><img src="images/msv.jpg" alt="The main entrance to MSV"></li>
-      <li><img src="images/msv2.jpg" alt="The front lawn of MSV"></li>
-      <li><img src="images/fowler.jpg" alt="Fowler Hall of MSV"></li>
-    </ul>
+    <h1>McCormick Student Village</h1>
+    <div class="slider-container">
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+      <ul class="slider">
+        <li class="slide"><img src="images/msv.jpg" alt="The main entrance to MSV"></li>
+        <li class="slide"><img src="images/msv2.jpg" alt="The front lawn of MSV"></li>
+        <li class="slide"><img src="images/fowler.jpg" alt="Fowler Hall of MSV"></li>
+      </ul>
+      <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
   </section>
 
   <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIWGeBWMq1N3gGBBltdTBS1D953KC2S0o&callback=initMap"></script>
@@ -53,7 +57,7 @@
       });
 
       const infoWindow = new google.maps.InfoWindow({
-        content: "<h3>McCormick Student Village</h3><p>The oldest resident building on campus.</p>",
+        content: "<h2>McCormick Student Village</h3><p>The oldest resident building on campus.</p>",
       });
 
       marker.addListener("click", () => {
@@ -79,12 +83,6 @@
 
       return controlUI;
     }
-  </script>
-
-  <script>
-    $(document).ready(function() {
-      $('.slider').Slider({ auto: true });
-    });
   </script>
 </body>
 </html>
