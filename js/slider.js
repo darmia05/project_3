@@ -1,25 +1,24 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const slidesContainer = document.querySelector('.slider');
+let slideIndex = 0;
 
-    if (!slidesContainer) {
-        return;
-    }
+function showSlides() {
+  const slides = document.querySelectorAll('.slide');
+  slides.forEach((slide, index) => {
+    slide.style.display = 'none';
+  });
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  slides[slideIndex - 1].style.display = 'block';
+  setTimeout(showSlides, 3000);
+}
 
-    const images = Array.from(slidesContainer.children);
+function moveSlide(n) {
+  slideIndex += n;
+  const slides = document.querySelectorAll('.slide');
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  if (slideIndex < 1) { slideIndex = slides.length }
+  showSlides();
+}
 
-    let currentPosition = 0;
-    const scrollSpeed = 0.65;
-
-    function animateSlider() {
-        currentPosition -= scrollSpeed;
-
-        if (Math.abs(currentPosition) >= slidesContainer.scrollWidth) {
-            currentPosition = 0;
-        }
-
-        slidesContainer.style.transform = `translateX(${currentPosition}px)`;
-        requestAnimationFrame(animateSlider);
-    }
-
-    animateSlider();
-});
+window.onload = function() {
+  showSlides(); 
+};
