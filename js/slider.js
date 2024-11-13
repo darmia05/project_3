@@ -40,44 +40,26 @@ function createCenterControl(controlDiv, map, marker) {
   return controlUI;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Slider script loaded.");
+let currentIndex = 0;
 
-  const slides = document.querySelectorAll(".slide");
-  console.log("Slides found:", slides.length);
+function nextSlide() {
+  const slides = document.querySelectorAll('.slide');
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateSlider();
+}
 
-  if (slides.length === 0) {
-    console.error("No slides found. Check your HTML.");
-    return;
-  }
+function prevSlide() {
+  const slides = document.querySelectorAll('.slide');
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateSlider();
+}
 
-  let currIndex = 0;
-
-  function show(idx) {
-    console.log("Showing slide index:", idx);
-
-    if (idx >= slides.length) currIndex = 0;
-    if (idx < 0) currIndex = slides.length - 1;
-
-    slides.forEach((slide, i) => {
-      slide.classList.remove("active");
-      if (i === currIndex) slide.classList.add("active");
-    });
-  }
-
-  function nextSlide() {
-    currIndex++;
-    show(currIndex);
-  }
-
-  function prevSlide() {
-    currIndex--;
-    show(currIndex);
-  }
-
-  show(currIndex);
-  setInterval(nextSlide, 3000);
-
-  window.nextSlide = nextSlide;
-  window.prevSlide = prevSlide;
-});
+function updateSlider() {
+  const slides = document.querySelectorAll('.slide');
+  slides.forEach((slide, index) => {
+    slide.classList.remove('active');
+    if (index === currentIndex) {
+      slide.classList.add('active');
+    }
+  });
+}
