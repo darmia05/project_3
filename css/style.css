@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
-html, body {
+html {
   background-image: url('../images/tech.jpg');
   background-size: cover;
   background-attachment: fixed;
-  background-position: center;
-  height: 100%;
 }
 
 body {
