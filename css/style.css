@@ -171,16 +171,20 @@ body.about_me {
   display: inline-block;
   width: 100%;
   max-width: 600px;
+  overflow: hidden;
 }
 
 .slider {
   list-style-type: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  transition: transform 1s ease-in-out; 
 }
 
 .slider .slide {
-  display: none;
+  min-width: 100%; 
+  transition: opacity 1s ease-in-out;
 }
 
 .slider img {
@@ -188,28 +192,11 @@ body.about_me {
   border-radius: 10px;
 }
 
-button.prev, button.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
+.slider .slide {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
-button.prev {
-  left: 10px;
-}
-
-button.next {
-  right: 10px;
-}
-
-button.prev:hover, button.next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+.slider .active {
+  opacity: 1;
 }
