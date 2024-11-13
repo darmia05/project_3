@@ -6,8 +6,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: transparent;
-  line-height: 1.6;
-  font-size: 1rem;
 }
 
 ul {
@@ -15,7 +13,6 @@ ul {
   justify-content: center;
   background-color: #222;
   padding: 1rem;
-  list-style-type: none;
 }
 
 ul li {
@@ -59,6 +56,15 @@ section iframe {
   margin-right: auto;
   width: 80%;
   max-width: 560px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
 p {
@@ -121,6 +127,17 @@ body.about_me {
 }
 
 @media (max-width: 768px) {
+  .about_me section {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+}
+
+.index section {
+  max-width: 1000px;
+}
+
+@media (max-width: 768px) {
   ul {
     flex-direction: column;
     padding: 0;
@@ -133,20 +150,12 @@ body.about_me {
   section {
     max-width: 100%;
   }
+}
 
-  .about_me section {
-    max-width: 100%;
-    padding: 1.5rem;
-  }
-
-  #map {
-    height: 400px;
-  }
-
-  .slider img {
-    height: 200px;
-    object-fit: cover;
-  }
+html {
+  background-image: url('../images/tech.jpg');
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 body#map-page {
@@ -201,8 +210,13 @@ body#map-page {
   transform: scale(1.05);
 }
 
-html {
-  background-image: url('../images/tech.jpg');
-  background-size: cover;
-  background-attachment: fixed;
+@media (max-width: 768px) {
+  #map {
+    height: 400px;
+  }
+
+  .slider img {
+    height: 200px;
+    object-fit: cover;
+  }
 }
