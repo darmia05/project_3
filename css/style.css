@@ -181,8 +181,13 @@ body.about_me {
 
 .slide {
     min-width: 100%;
+    opacity: 0;
     transition: opacity 0.5s ease;
     box-sizing: border-box;
+}
+
+.slide.active {
+    opacity: 1;
 }
 
 .slide img {
