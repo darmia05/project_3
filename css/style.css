@@ -1,18 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
+html {
+  background-image: url('../images/tech.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   color: #333;
   margin: 0;
   padding: 0;
   background-color: transparent;
+  line-height: 1.6;
+  font-size: 1rem;
 }
 
 ul {
   display: flex;
   justify-content: center;
-  background-color: #222;
+  background-color: black;
   padding: 1rem;
+  list-style-type: none;
 }
 
 ul li {
@@ -23,6 +32,7 @@ ul li a {
   color: white;
   font-weight: 600;
   font-size: 1.2rem;
+  text-decoration: none;
 }
 
 ul li a:hover {
@@ -36,8 +46,8 @@ h1, h2, h3 {
 
 section {
   margin: 2rem auto;
-  padding: 1rem;
-  max-width: 800px;
+  padding: 2%;
+  max-width: 50rem;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -58,22 +68,8 @@ section iframe {
   max-width: 560px;
 }
 
-ul {
-  list-style-type: none;
-}
-
-body {
-  line-height: 1.6;
-  font-size: 1rem;
-}
-
-p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
-
 body.index {
-  background-color: #e1f5fe;
+  background-color: black;
 }
 
 .index h1 {
@@ -86,12 +82,12 @@ body.index {
 }
 
 .index ul {
-  background-color: #0288d1;
+  background-color: black;
   color: white;
 }
 
 body.music {
-  background-color: #fff3e0;
+  background-color: black;
 }
 
 .music h1 {
@@ -104,12 +100,12 @@ body.music {
 }
 
 .music ul {
-  background-color: #ff9800;
+  background-color: black;
   color: white;
 }
 
 body.about_me {
-  background-color: #fce4ec;
+  background-color: black;
 }
 
 .about_me h1 {
@@ -122,7 +118,7 @@ body.about_me {
 }
 
 .about_me ul {
-  background-color: #ec407a;
+  background-color: black;
   color: white;
 }
 
@@ -134,7 +130,7 @@ body.about_me {
 }
 
 .index section {
-  max-width: 1000px;
+  max-width: 62.5rem;
 }
 
 @media (max-width: 768px) {
@@ -151,51 +147,69 @@ body.about_me {
     max-width: 100%;
   }
 }
-html {
-  background-image: url('../images/tech.jpg');
-  background-size: cover;
-  background-attachment: fixed;
-}
-.slideshow {
-  margin-top: 2rem;
-  text-align: center;
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-.slideshow h2 {
-  font-size: 2rem;
-  color: #333;
+#map {
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.slideshow {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.slider-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 600px;
 }
 
 .slider {
-  display: flex;
-  overflow: hidden;
-  width: 100%;
-  margin: 0 auto;
+  list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
-.slider li {
-  list-style-type: none;
-  flex: 0 0 100%; 
+.slider .slide {
+  display: none;
 }
 
 .slider img {
-  width: 100%; 
+  width: 100%;
   border-radius: 10px;
-  transition: transform 0.3s ease;
 }
 
-.slider img:hover {
-  transform: scale(1.05);
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
 }
 
-@media (max-width: 768px) {
-  #map {
-    height: 400px;
-  }
+button.prev {
+  left: 10px;
+}
 
-  .slider img {
-    height: 200px;
-    object-fit: cover;
-  }
+button.next {
+  right: 10px;
+}
+
+button.prev:hover, button.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
