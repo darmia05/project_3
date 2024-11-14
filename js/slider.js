@@ -15,10 +15,7 @@ function prevSlide() {
 function updateSlider() {
   const slides = document.querySelectorAll('.slide');
   slides.forEach((slide, index) => {
-    slide.classList.remove('active');
-    if (index === currentIndex) {
-      slide.classList.add('active');
-    }
+    slide.style.display = index === currentIndex ? 'block' : 'none';
   });
 }
 
@@ -65,6 +62,7 @@ function createCenterControl(controlDiv, map, marker) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  updateSlider();
   const prevButton = document.querySelector('.prev');
   const nextButton = document.querySelector('.next');
   
