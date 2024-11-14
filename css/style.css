@@ -173,21 +173,13 @@ body.about_me {
 
 .slider {
     display: flex;
-    transition: transform 0.5s ease;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    width: 100%;
 }
 
 .slide {
     min-width: 100%;
-    opacity: 1;
-    transition: opacity 0.5s ease;
+    display: none; 
     box-sizing: border-box;
-}
-
-.slide {
-    opacity: 1;
 }
 
 .slide img {
